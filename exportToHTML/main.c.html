@@ -1,0 +1,364 @@
+<html>
+<head>
+<title>main.c</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #9e880d;}
+.s1 { color: #080808;}
+.s2 { color: #067d17;}
+.s3 { color: #8c8c8c; font-style: italic;}
+.s4 { color: #0033b3;}
+.s5 { color: #1750eb;}
+.s6 { color: #0037a6;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.c</font>
+</center></td></tr></table>
+<pre><span class="s0">#include </span><span class="s2">&lt;stdio.h&gt;</span>
+<span class="s0">#include </span><span class="s2">&lt;stdlib.h&gt;</span>
+<span class="s0">#include </span><span class="s2">&lt;string.h&gt;</span>
+<span class="s0">#include </span><span class="s2">&lt;ctype.h&gt;</span>
+
+<span class="s3">// Funciones</span>
+<span class="s4">int </span><span class="s1">funtion_numRoman(</span><span class="s4">char</span><span class="s1">[]);</span>
+
+<span class="s4">void </span><span class="s1">funtion_primeFactors();</span>
+
+<span class="s4">void </span><span class="s1">funtion_deleteSpaces();</span>
+
+<span class="s4">void </span><span class="s1">funtion_numEgotistical();</span>
+
+<span class="s4">void </span><span class="s1">funtion_numMagical();</span>
+
+<span class="s4">char </span><span class="s1">*funtion_dates(</span><span class="s4">char</span><span class="s1">[]);</span>
+
+<span class="s4">int </span><span class="s1">funtion_productPoint(</span><span class="s4">int</span><span class="s1">[], </span><span class="s4">int</span><span class="s1">[]);</span>
+
+<span class="s4">void </span><span class="s1">funtion_multArryas();</span>
+
+<span class="s4">void </span><span class="s1">funtion_magicArray();</span>
+
+<span class="s3">// Menús</span>
+<span class="s4">void </span><span class="s1">menuPrincipal();</span>
+
+<span class="s4">void </span><span class="s1">menu_numRoman();</span>
+
+<span class="s4">void </span><span class="s1">menu_primeFactors();</span>
+
+<span class="s4">void </span><span class="s1">menu_deleteSpaces();</span>
+
+<span class="s4">void </span><span class="s1">menu_numEgotistical();</span>
+
+<span class="s4">void </span><span class="s1">menu_numMagical();</span>
+
+<span class="s4">void </span><span class="s1">menu_dates();</span>
+
+<span class="s4">void </span><span class="s1">menu_productPoint();</span>
+
+<span class="s4">void </span><span class="s1">menu_multArryas();</span>
+
+<span class="s4">void </span><span class="s1">menu_magicArray();</span>
+
+<span class="s4">int </span><span class="s1">main() {</span>
+    <span class="s1">menuPrincipal();</span>
+    <span class="s4">return </span><span class="s5">0</span><span class="s1">;</span>
+<span class="s1">}</span>
+
+<span class="s3">// Instancia de Funciones</span>
+<span class="s4">int </span><span class="s1">funtion_numRoman(</span><span class="s4">char </span><span class="s1">numRoman[</span><span class="s5">10</span><span class="s1">]) {</span>
+    <span class="s4">int </span><span class="s1">number[</span><span class="s5">10</span><span class="s1">] = {</span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">};</span>
+    <span class="s4">int </span><span class="s1">addition = </span><span class="s5">0</span><span class="s1">;</span>
+
+    <span class="s4">for </span><span class="s1">(</span><span class="s4">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s1">; i &lt; strlen(numRoman); ++i) {</span>
+        <span class="s4">switch </span><span class="s1">(numRoman[i]) {</span>
+
+            <span class="s4">case </span><span class="s2">'M'</span><span class="s1">:</span>
+                <span class="s1">number[i] = </span><span class="s5">1000</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+            <span class="s4">case </span><span class="s2">'D'</span><span class="s1">:</span>
+                <span class="s1">number[i] = </span><span class="s5">500</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+            <span class="s4">case </span><span class="s2">'C'</span><span class="s1">:</span>
+                <span class="s1">number[i] = </span><span class="s5">100</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+            <span class="s4">case </span><span class="s2">'L'</span><span class="s1">:</span>
+                <span class="s1">number[i] = </span><span class="s5">50</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+            <span class="s4">case </span><span class="s2">'X'</span><span class="s1">:</span>
+                <span class="s1">number[i] = </span><span class="s5">10</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+            <span class="s4">case </span><span class="s2">'V'</span><span class="s1">:</span>
+                <span class="s1">number[i] = </span><span class="s5">5</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+            <span class="s4">case </span><span class="s2">'I'</span><span class="s1">:</span>
+                <span class="s1">number[i] = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">default</span><span class="s1">:</span>
+                <span class="s1">printf(</span><span class="s2">&quot;</span><span class="s6">\n </span><span class="s2">Has introducido caracteres invalidos&quot;</span><span class="s1">);</span>
+                <span class="s1">number[i] = </span><span class="s5">0</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s4">for </span><span class="s1">(</span><span class="s4">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s1">; i &lt; strlen(numRoman); ++i) {</span>
+        <span class="s4">if </span><span class="s1">(number[i] &gt;= number[i + </span><span class="s5">1</span><span class="s1">]) {</span>
+            <span class="s1">addition += number[i];</span>
+        <span class="s1">} </span><span class="s4">else </span><span class="s1">{</span>
+            <span class="s1">addition -= number[i];</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s4">return </span><span class="s1">addition;</span>
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">funtion_primeFactors();</span>
+
+<span class="s4">void </span><span class="s1">funtion_deleteSpaces();</span>
+
+<span class="s4">void </span><span class="s1">funtion_numEgotistical();</span>
+
+<span class="s4">void </span><span class="s1">funtion_numMagical();</span>
+
+<span class="s4">char </span><span class="s1">*funtion_dates(</span><span class="s4">char </span><span class="s1">date[</span><span class="s5">10</span><span class="s1">]) {</span>
+    <span class="s4">char </span><span class="s1">*months[</span><span class="s5">12</span><span class="s1">] = {</span><span class="s2">&quot;enero&quot;</span><span class="s1">, </span><span class="s2">&quot;febrero&quot;</span><span class="s1">, </span><span class="s2">&quot;marzo&quot;</span><span class="s1">, </span><span class="s2">&quot;abril&quot;</span><span class="s1">, </span><span class="s2">&quot;mayo&quot;</span><span class="s1">, </span><span class="s2">&quot;junio&quot;</span><span class="s1">, </span><span class="s2">&quot;julio&quot;</span><span class="s1">, </span><span class="s2">&quot;agosto&quot;</span><span class="s1">, </span><span class="s2">&quot;septiembre&quot;</span><span class="s1">,</span>
+                        <span class="s2">&quot;octubre&quot;</span><span class="s1">, </span><span class="s2">&quot;noviembre&quot;</span><span class="s1">, </span><span class="s2">&quot;diciembre&quot;</span><span class="s1">};</span>
+    <span class="s4">char </span><span class="s1">*dateFinal[</span><span class="s5">200</span><span class="s1">];</span>
+    <span class="s4">int </span><span class="s1">day, month, year, control;</span>
+    <span class="s4">int </span><span class="s1">counter = </span><span class="s5">0</span><span class="s1">;</span>
+    <span class="s4">int </span><span class="s1">dayMax = </span><span class="s5">0</span><span class="s1">;</span>
+
+    <span class="s4">char </span><span class="s1">*token;</span>
+    <span class="s1">token = strtok(date, </span><span class="s2">&quot;/&quot;</span><span class="s1">);</span>
+    <span class="s4">while </span><span class="s1">(token != NULL) {</span>
+        <span class="s1">counter++;</span>
+        <span class="s4">switch </span><span class="s1">(counter) {</span>
+            <span class="s4">case </span><span class="s5">1</span><span class="s1">:</span>
+                <span class="s1">control = day = atoi(token);</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">2</span><span class="s1">:</span>
+                <span class="s1">control = month = atoi(token);</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">3</span><span class="s1">:</span>
+                <span class="s1">control = year = atoi(token);</span>
+                <span class="s4">break</span><span class="s1">;</span>
+        <span class="s1">}</span>
+        <span class="s4">if </span><span class="s1">(control == </span><span class="s5">0</span><span class="s1">) </span><span class="s4">break</span><span class="s1">;</span>
+        <span class="s1">token = strtok(NULL, </span><span class="s2">&quot;/&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s4">if </span><span class="s1">(control != </span><span class="s5">0 </span><span class="s1">&amp;&amp; counter == </span><span class="s5">3</span><span class="s1">) {</span>
+        <span class="s4">switch </span><span class="s1">(month) {</span>
+            <span class="s4">case </span><span class="s5">1</span><span class="s1">:</span>
+            <span class="s4">case </span><span class="s5">3</span><span class="s1">:</span>
+            <span class="s4">case </span><span class="s5">5</span><span class="s1">:</span>
+            <span class="s4">case </span><span class="s5">7</span><span class="s1">:</span>
+            <span class="s4">case </span><span class="s5">8</span><span class="s1">:</span>
+            <span class="s4">case </span><span class="s5">10</span><span class="s1">:</span>
+            <span class="s4">case </span><span class="s5">12</span><span class="s1">:</span>
+                <span class="s1">dayMax = </span><span class="s5">31</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">4</span><span class="s1">:</span>
+            <span class="s4">case </span><span class="s5">6</span><span class="s1">:</span>
+            <span class="s4">case </span><span class="s5">9</span><span class="s1">:</span>
+            <span class="s4">case </span><span class="s5">11</span><span class="s1">:</span>
+                <span class="s1">dayMax = </span><span class="s5">30</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">2</span><span class="s1">:</span>
+                <span class="s4">if </span><span class="s1">(year % </span><span class="s5">4 </span><span class="s1">== </span><span class="s5">0</span><span class="s1">) dayMax = </span><span class="s5">29</span><span class="s1">;</span>
+                <span class="s4">else </span><span class="s1">dayMax = </span><span class="s5">28</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+        <span class="s1">}</span>
+
+        <span class="s4">if </span><span class="s1">(dayMax &gt; </span><span class="s5">0</span><span class="s1">) {</span>
+            <span class="s4">if </span><span class="s1">(day &gt; dayMax) {</span>
+                <span class="s1">printf(</span><span class="s2">&quot;Ese mes no tiene tantos dias...</span><span class="s6">\n\n</span><span class="s2">&quot;</span><span class="s1">);</span>
+            <span class="s1">} </span><span class="s4">else </span><span class="s1">{</span>
+                <span class="s1">printf(</span><span class="s2">&quot;Su fecha es: %2i de %s de %i</span><span class="s6">\n</span><span class="s2">&quot;</span><span class="s1">, day, months[month - </span><span class="s5">1</span><span class="s1">], year);</span>
+            <span class="s1">}</span>
+        <span class="s1">} </span><span class="s4">else </span><span class="s1">{</span>
+            <span class="s1">printf(</span><span class="s2">&quot;Mes incorrecto...</span><span class="s6">\n\n</span><span class="s2">&quot;</span><span class="s1">);</span>
+        <span class="s1">}</span>
+    <span class="s1">} </span><span class="s4">else </span><span class="s1">{</span>
+        <span class="s1">printf(</span><span class="s2">&quot;Formato de fecha incorrecto...</span><span class="s6">\n\n</span><span class="s2">&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+    <span class="s4">return </span><span class="s1">*dateFinal;</span>
+<span class="s1">}</span>
+
+<span class="s4">int </span><span class="s1">funtion_productPoint(</span><span class="s4">int </span><span class="s1">matrizA[], </span><span class="s4">int </span><span class="s1">matrizB[]) {</span>
+    <span class="s4">int </span><span class="s1">sizeTotal = </span><span class="s5">0</span><span class="s1">;</span>
+    <span class="s4">int </span><span class="s1">sizeMatrizA = </span><span class="s4">sizeof</span><span class="s1">(*matrizA);</span>
+    <span class="s4">for </span><span class="s1">(</span><span class="s4">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s1">; i &lt; sizeMatrizA; ++i) {</span>
+        <span class="s1">sizeTotal += matrizA[i] * matrizB[i];</span>
+    <span class="s1">}</span>
+    <span class="s4">return </span><span class="s1">sizeTotal;</span>
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">funtion_multArryas();</span>
+
+<span class="s4">void </span><span class="s1">funtion_magicArray();</span>
+
+<span class="s3">// Instancia Menus</span>
+<span class="s4">void </span><span class="s1">menuPrincipal() {</span>
+    <span class="s4">int </span><span class="s1">bucleMenu;</span>
+    <span class="s4">int </span><span class="s1">optionMenu;</span>
+
+    <span class="s4">while </span><span class="s1">(bucleMenu) {</span>
+        <span class="s1">printf(</span><span class="s2">&quot;---&gt; Menu Principal</span><span class="s6">\n\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;[1] Numero romano.</span><span class="s6">\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;[2] Factores primos.</span><span class="s6">\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;[3] Borrar espacios.</span><span class="s6">\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;[4] Numeros egolatras.</span><span class="s6">\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;[5] Numero magico.</span><span class="s6">\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;[6] Fechas.</span><span class="s6">\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;[7] Producto punto.</span><span class="s6">\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;[8] Multiplicacion de matrices.</span><span class="s6">\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;[9] Matriz magica.</span><span class="s6">\n\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;[0] Salir.</span><span class="s6">\n\n</span><span class="s2">&quot;</span>
+               <span class="s2">&quot;Digite una opcion...:&quot;</span><span class="s1">);</span>
+
+        <span class="s1">scanf(</span><span class="s2">&quot;%i&quot;</span><span class="s1">, &amp;optionMenu);</span>
+        <span class="s1">fflush(stdin);</span>
+
+        <span class="s4">switch </span><span class="s1">(optionMenu) {</span>
+            <span class="s4">case </span><span class="s5">1</span><span class="s1">:</span>
+                <span class="s1">menu_numRoman();</span>
+                <span class="s1">bucleMenu = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">2</span><span class="s1">:</span>
+                <span class="s1">bucleMenu = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">3</span><span class="s1">:</span>
+                <span class="s1">bucleMenu = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">4</span><span class="s1">:</span>
+                <span class="s1">bucleMenu = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">5</span><span class="s1">:</span>
+                <span class="s1">bucleMenu = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">6</span><span class="s1">:</span>
+                <span class="s1">menu_dates();</span>
+                <span class="s1">bucleMenu = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">7</span><span class="s1">:</span>
+                <span class="s1">menu_productPoint();</span>
+                <span class="s1">bucleMenu = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">8</span><span class="s1">:</span>
+                <span class="s1">bucleMenu = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">9</span><span class="s1">:</span>
+                <span class="s1">bucleMenu = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">case </span><span class="s5">0</span><span class="s1">:</span>
+                <span class="s1">printf(</span><span class="s2">&quot;Hasta pronto!&quot;</span><span class="s1">);</span>
+                <span class="s1">bucleMenu = </span><span class="s5">0</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+
+            <span class="s4">default</span><span class="s1">:</span>
+                <span class="s1">printf(</span><span class="s2">&quot;Opcion invalida, intentelo de nuevo...</span><span class="s6">\n\n</span><span class="s2">&quot;</span><span class="s1">);</span>
+                <span class="s1">bucleMenu = </span><span class="s5">1</span><span class="s1">;</span>
+                <span class="s4">break</span><span class="s1">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">menu_numRoman() {</span>
+    <span class="s4">char </span><span class="s1">numRoman[</span><span class="s5">10</span><span class="s1">];</span>
+    <span class="s1">printf(</span><span class="s2">&quot;---&gt; Menu numero romano</span><span class="s6">\n</span><span class="s2">&quot;</span>
+           <span class="s2">&quot;Ingrese un numero romano...&quot;</span><span class="s1">);</span>
+
+    <span class="s1">scanf(</span><span class="s2">&quot;%s&quot;</span><span class="s1">, numRoman);</span>
+    <span class="s4">for </span><span class="s1">(</span><span class="s4">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s1">; i &lt; strlen(numRoman); ++i) {</span>
+        <span class="s1">numRoman[i] = toupper(numRoman[i]);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">printf(</span><span class="s2">&quot;El valor [ %s ] en numeros decimales es: %d</span><span class="s6">\n\n</span><span class="s2">&quot;</span><span class="s1">, numRoman, funtion_numRoman(numRoman));</span>
+    <span class="s1">system(</span><span class="s2">&quot;pause&quot;</span><span class="s1">);</span>
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">menu_primeFactors() {</span>
+
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">menu_deleteSpaces() {</span>
+
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">menu_numEgotistical() {</span>
+
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">menu_numMagical() {</span>
+
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">menu_dates() {</span>
+    <span class="s4">char </span><span class="s1">date[</span><span class="s5">10</span><span class="s1">];</span>
+
+    <span class="s1">printf(</span><span class="s2">&quot;---&gt; Fechas</span><span class="s6">\n</span><span class="s2">&quot;</span>
+           <span class="s2">&quot;- Ingrese una fecha con el formato [dd/mm/yyyy]&quot;</span><span class="s1">);</span>
+
+    <span class="s1">scanf(</span><span class="s2">&quot;%s&quot;</span><span class="s1">, date);</span>
+    <span class="s1">funtion_dates(date);</span>
+    <span class="s1">system(</span><span class="s2">&quot;pause&quot;</span><span class="s1">);</span>
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">menu_productPoint() {</span>
+    <span class="s4">int </span><span class="s1">sizeA, sizeB;</span>
+
+    <span class="s1">printf(</span><span class="s2">&quot;---&gt; Producto punto</span><span class="s6">\n</span><span class="s2">&quot;</span>
+           <span class="s2">&quot;- Ingrese el tamanho del vector A:&quot;</span><span class="s1">);</span>
+    <span class="s1">scanf(</span><span class="s2">&quot;%d&quot;</span><span class="s1">, &amp;sizeA);</span>
+
+    <span class="s1">printf(</span><span class="s2">&quot;- Ingrese el tamanho del vector B:&quot;</span><span class="s1">);</span>
+    <span class="s1">scanf(</span><span class="s2">&quot;%d&quot;</span><span class="s1">, &amp;sizeB);</span>
+
+    <span class="s4">if </span><span class="s1">(sizeA == sizeB) {</span>
+        <span class="s4">int </span><span class="s1">matrizA[sizeA], matrizB[sizeB];</span>
+
+        <span class="s4">for </span><span class="s1">(</span><span class="s4">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s1">; i &lt; sizeA; i++) {</span>
+            <span class="s1">printf(</span><span class="s2">&quot;A [%d] =&quot;</span><span class="s1">, i + </span><span class="s5">1</span><span class="s1">);</span>
+            <span class="s1">scanf(</span><span class="s2">&quot;%d&quot;</span><span class="s1">, &amp;matrizA[i]);</span>
+            <span class="s1">fflush(stdin);</span>
+        <span class="s1">}</span>
+
+        <span class="s4">for </span><span class="s1">(</span><span class="s4">int </span><span class="s1">j = </span><span class="s5">0</span><span class="s1">; j &lt; sizeB; j++) {</span>
+            <span class="s1">printf(</span><span class="s2">&quot;B [%d] =&quot;</span><span class="s1">, j + </span><span class="s5">1</span><span class="s1">);</span>
+            <span class="s1">scanf(</span><span class="s2">&quot;%d&quot;</span><span class="s1">, &amp;matrizB[j]);</span>
+            <span class="s1">fflush(stdin);</span>
+        <span class="s1">}</span>
+
+        <span class="s1">printf(</span><span class="s2">&quot;El producto punto de ambas matrices es: %d </span><span class="s6">\n</span><span class="s2">&quot;</span><span class="s1">, funtion_productPoint(matrizA, matrizB));</span>
+        <span class="s1">system(</span><span class="s2">&quot;pause&quot;</span><span class="s1">);</span>
+    <span class="s1">} </span><span class="s4">else </span><span class="s1">{</span>
+        <span class="s1">printf(</span><span class="s2">&quot;Ambas matrices deben ser iguales...</span><span class="s6">\n</span><span class="s2">&quot;</span><span class="s1">);</span>
+        <span class="s1">system(</span><span class="s2">&quot;pause&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">menu_multArryas() {</span>
+
+<span class="s1">}</span>
+
+<span class="s4">void </span><span class="s1">menu_magicArray() {</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>
