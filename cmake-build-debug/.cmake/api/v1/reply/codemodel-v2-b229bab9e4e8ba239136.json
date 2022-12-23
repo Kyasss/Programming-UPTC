@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/numar/CLionProjects/Functions/cmake-build-debug",
-		"source" : "C:/Users/numar/CLionProjects/Functions"
+		"build" : "C:/Users/carre/repositorio/cmake-build-debug",
+		"source" : "C:/Users/carre/repositorio"
 	},
 	"version" : 
 	{
