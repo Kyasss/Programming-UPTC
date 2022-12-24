@@ -24,6 +24,7 @@ CMakeFiles/Functions.dir/main.c.obj: \
  c:\mingw64\mingw64\x86_64-w64-mingw32\include\string.h \
  c:\mingw64\mingw64\x86_64-w64-mingw32\include\sec_api\string_s.h \
  c:\mingw64\mingw64\x86_64-w64-mingw32\include\ctype.h \
+ c:\mingw64\mingw64\x86_64-w64-mingw32\include\math.h \
  c:\mingw64\mingw64\x86_64-w64-mingw32\include\conio.h \
  c:\mingw64\mingw64\lib\gcc\x86_64-w64-mingw32\12.2.0\include\stddef.h \
  c:\mingw64\mingw64\x86_64-w64-mingw32\include\stddef.h \

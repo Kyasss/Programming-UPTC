@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 #include <conio.h>
 
 // Variables para el uso del metodo de matrices magicas
@@ -16,19 +17,19 @@ void pressEnter();
 // Funciones
 int funtion_numRoman(char[]);
 
-void funtion_primeFactors();
+void funtion_primeFactors(long);
 
 void funtion_deleteSpaces(char[], char []);
 
-void funtion_numEgotistical();
+int funtion_numEgotistical(int);
 
-void funtion_numMagical();
+int funtion_numMagical(int);
 
 void funtion_dates(char[]);
 
 int funtion_productPoint(int[], int[], int);
 
-void funtion_multArryas();
+void funtion_multArryas(int, int, int, int);
 
 void funtion_magicArray();
 
@@ -104,7 +105,31 @@ int funtion_numRoman(char numRoman[10]) {
     return addition;
 }
 
-void funtion_primeFactors();
+void funtion_primeFactors(long number) {
+    long numberAux;
+    long iterator = 0;
+
+    numberAux = number;
+    printf("\n---> %d =", numberAux);
+
+    for (long i = 2; number > 1; ++i) {
+        if (iterator != 0) {
+            printf(" * ");
+        }
+        iterator = 0;
+        if (number % i == 0) {
+            while (number % i == 0) {
+                iterator += 1;
+                number = number / i;
+            }
+            if (iterator > 1) {
+                printf("%d^%d", i, iterator);
+            } else if (iterator == 1) {
+                printf("%d", i);
+            }
+        }
+    }
+}
 
 void funtion_deleteSpaces(char string[], char stringWithoutSpaces[]) {
     int i = 0;
@@ -119,9 +144,65 @@ void funtion_deleteSpaces(char string[], char stringWithoutSpaces[]) {
     }
 }
 
-void funtion_numEgotistical();
+int funtion_numEgotistical(int number) {
+    int adittion = 0;
+    int size = floor(log10(number)) + 1;
+    char numberString[size + 1];
 
-void funtion_numMagical();
+    sprintf(numberString, "%d", number);
+
+    for (int i = 0; i < size; ++i) {
+        int now = numberString[i] - '0';
+        int potency = pow(now, size);
+        adittion += potency;
+    }
+
+    if (adittion == number) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int funtion_numMagical(int number) {
+    int numDes, numAs;
+    int size = floor(log10(number)) + 1;
+    char numberString[size + 1];
+
+    sprintf(numberString, "%d", number);
+
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+
+            if (numberString[i] < numberString[j]) {
+                int temporal = numberString[i];
+                numberString[i] = numberString[j];
+                numberString[j] = temporal;
+            }
+        }
+    }
+
+    numDes = atoi(numberString);
+
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+
+            if (numberString[i] > numberString[j]) {
+                int temporal = numberString[i];
+                numberString[i] = numberString[j];
+                numberString[j] = temporal;
+            }
+        }
+    }
+
+    numAs = atoi(numberString);
+
+    if ((numDes - numAs) == number) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
 
 void funtion_dates(char date[10]) {
     char *months[12] = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre",
@@ -199,7 +280,63 @@ int funtion_productPoint(int matrizA[], int matrizB[], int sizeMatriz) {
     return sizeTotal;
 }
 
-void funtion_multArryas();
+void funtion_multArryas(int fm1, int cm1, int fm2, int cm2) {
+    int m1[fm1][cm1];
+    int m2[fm2][cm2];
+    int m3[fm1][cm2];
+
+    if (cm1 == fm2) {
+        for (int i = 0; i < fm1; ++i) {
+            for (int j = 0; j < cm1; ++j) {
+                m1[i][j] = rand() % 9 + 1;
+            }
+        }
+        for (int i = 0; i < fm2; ++i) {
+            for (int j = 0; j < cm2; ++j) {
+                m2[i][j] = rand() % 9 + 1;
+            }
+        }
+        for (int i = 0; i < fm1; ++i) {
+            for (int j = 0; j < cm2; ++j) {
+                m3[i][j] = 0;
+                for (int k = 0; k < cm1; ++k) {
+                    m3[i][j] += m1[i][k] * m2[k][j];
+                }
+            }
+        }
+        printf("\nPrimera matriz:\n\n");
+        for (int i = 0; i < fm1; ++i) {
+            printf("  [");
+            for (int j = 0; j < cm1; ++j) {
+                printf(" %d ", m1[i][j]);
+            }
+            printf("]\n");
+        }
+        printf("\nSegunda matriz:\n\n");
+        for (int i = 0; i < fm2; ++i) {
+            printf("  [");
+            for (int j = 0; j < cm2; ++j) {
+                printf(" %d ", m2[i][j]);
+            }
+            printf("]\n");
+        }
+        printf("\nResultado:\n\n");
+        for (int i = 0; i < fm1; ++i) {
+            printf("  [");
+            for (int j = 0; j < cm2; ++j) {
+                if (m3[i][j] < 100) {
+                    printf("  %d ", m3[i][j]);
+                } else {
+                    printf(" %d ", m3[i][j]);
+                }
+            }
+            printf("]\n");
+        }
+        printf("\n");
+    } else {
+        printf("\n----> Las matrices no son multiplicables\n");
+    }
+}
 
 void funtion_magicArray(int number) {
     if (number % 2 == 0) {
@@ -271,6 +408,7 @@ void menuPrincipal() {
                 break;
 
             case 2:
+                menu_primeFactors();
                 bucleMenu = 1;
                 break;
 
@@ -280,10 +418,12 @@ void menuPrincipal() {
                 break;
 
             case 4:
+                menu_numEgotistical();
                 bucleMenu = 1;
                 break;
 
             case 5:
+                menu_numMagical();
                 bucleMenu = 1;
                 break;
 
@@ -298,6 +438,7 @@ void menuPrincipal() {
                 break;
 
             case 8:
+                menu_multArryas();
                 bucleMenu = 1;
                 break;
 
@@ -334,7 +475,14 @@ void menu_numRoman() {
 }
 
 void menu_primeFactors() {
+    long number;
 
+    printf("---> Menu factores primos\n"
+           "Ingrese una numero...");
+    scanf("%d", &number);
+
+    funtion_primeFactors(number);
+    pressEnter();
 }
 
 void menu_deleteSpaces() {
@@ -352,17 +500,40 @@ void menu_deleteSpaces() {
 }
 
 void menu_numEgotistical() {
+    int number;
 
+    printf("---> Menu numero egolatra\n"
+           "Digite un numero...");
+    scanf("%d", &number);
+    fflush(stdin);
+
+    if (funtion_numEgotistical(number) == 1) {
+        printf("El numero %d es un numero egolatra", number);
+    } else {
+        printf("El numero %d NO es un numero egolatra", number);
+    }
+    pressEnter();
 }
 
 void menu_numMagical() {
+    int number;
 
+    printf("---> Menu numero magico\n"
+           "Ingrese una cadena de caracteres...");
+    scanf("%d", number);
+
+    if (funtion_numMagical(number) == 1) {
+        printf("El numero %d es un numero magico", number);
+    } else {
+        printf("El numero %d NO es un numero magico", number);
+    }
+    pressEnter();
 }
 
 void menu_dates() {
     char date[10];
 
-    printf("---> Fechas\n"
+    printf("---> Menu fechas\n"
            "- Ingrese una fecha con el formato [dd/mm/yyyy]");
 
     scanf("%s", date);
@@ -375,7 +546,7 @@ void menu_dates() {
 void menu_productPoint() {
     int sizeA, sizeB;
 
-    printf("---> Producto punto\n"
+    printf("---> Menu producto punto\n"
            "- Ingrese el tamanho del vector A:");
     scanf("%d", &sizeA);
 
@@ -406,14 +577,30 @@ void menu_productPoint() {
 }
 
 void menu_multArryas() {
+    int rows1, columns1, rows2, columns2;
 
+    printf("---> Menu multiplicar matrices\n"
+           "- Ingrese las filas de la primera matriz:");
+    scanf("%d", &rows1);
+
+    printf("- \nIngrese las columnas de la primera matriz:");
+    scanf("%d", &columns1);
+
+    printf("- \nIngrese las filas de la segunda matriz:");
+    scanf("%d", &rows2);
+
+    printf("- \nIngrese las columnas de la segunda matriz:");
+    scanf("%d", &columns2);
+
+    funtion_multArryas(rows1, columns1, rows2, columns2);
+    pressEnter();
 }
 
 void menu_magicArray() {
     int matriz[nums][nums];
     int number;
 
-    printf("---> Matriz magica\n"
+    printf("---> Menu matriz magica\n"
            "- Ingrese el numero de elementos:");
 
     scanf("%d", &number);
