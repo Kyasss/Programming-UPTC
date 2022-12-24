@@ -5,28 +5,53 @@
 #include <math.h>
 #include <conio.h>
 
+// Variables para el uso del metodo de matrices magicas
+#define nums 100
+int matriz[nums][nums];
+
+// Funciones complementarias
+void consumirNuevaLinea();
+
+void pressEnter();
+
 // Funciones
 int funtion_numRoman(char[]);
+
 void funtion_primeFactors(long);
-void funtion_deleteSpaces();
+
+void funtion_deleteSpaces(char[], char []);
+
 int funtion_numEgotistical(int);
+
 int funtion_numMagical(int);
-char *funtion_dates(char[]);
-int funtion_productPoint(int[], int[]);
-void funtion_multArryas(int,int,int,int);
+
+void funtion_dates(char[]);
+
+int funtion_productPoint(int[], int[], int);
+
+void funtion_multArryas(int, int, int, int);
+
 void funtion_magicArray();
-void funtion_continue();
 
 // Menús
 void menuPrincipal();
+
 void menu_numRoman();
+
 void menu_primeFactors();
+
 void menu_deleteSpaces();
+
 void menu_numEgotistical();
+
 void menu_numMagical();
+
 void menu_dates();
+
 void menu_productPoint();
+
 void menu_multArryas();
+
 void menu_magicArray();
 
 int main() {
@@ -80,100 +105,106 @@ int funtion_numRoman(char numRoman[10]) {
     return addition;
 }
 
-void funtion_primeFactors(long numero){
-    long numeroAux;
-    long iterador = 0;
+void funtion_primeFactors(long number) {
+    long numberAux;
+    long iterator = 0;
 
-    numeroAux = numero;
+    numberAux = number;
+    printf("\n---> %d =", numberAux);
 
-    printf("\n----> %d = ",numeroAux);
-
-    for (long i = 2; numero > 1 ; ++i) {
-        if(iterador != 0){
+    for (long i = 2; number > 1; ++i) {
+        if (iterator != 0) {
             printf(" * ");
         }
-        iterador = 0;
-        if(numero % i == 0){
-            while (numero %i == 0){
-                iterador += 1;
-                numero = numero/i;
+        iterator = 0;
+        if (number % i == 0) {
+            while (number % i == 0) {
+                iterator += 1;
+                number = number / i;
             }
-            if(iterador > 1){
-                printf("%d^%d",i,iterador);
-            }else if(iterador == 1){
-                printf("%d",i);
+            if (iterator > 1) {
+                printf("%d^%d", i, iterator);
+            } else if (iterator == 1) {
+                printf("%d", i);
             }
         }
     }
 }
 
-void funtion_deleteSpaces();
+void funtion_deleteSpaces(char string[], char stringWithoutSpaces[]) {
+    int i = 0;
+    int j = 0;
 
-int funtion_numEgotistical(int numero){
-    int suma = 0;
+    while (string[i] != '\0') {
+        if (string[i] != ' ') {
+            stringWithoutSpaces[j] = string[i];
+            j++;
+        }
+        i++;
+    }
+}
 
+int funtion_numEgotistical(int number) {
+    int adittion = 0;
+    int size = floor(log10(number)) + 1;
+    char numberString[size + 1];
 
-    int longitud = floor(log10(numero)) + 1;
-    char numeroCadena[longitud + 1];
+    sprintf(numberString, "%d", number);
 
-    sprintf(numeroCadena,"%d",numero);
-
-    for (int i = 0; i < longitud; ++i) {
-        int actual = numeroCadena[i] - '0';
-        int potencia = pow(actual,longitud);
-        suma += potencia;
+    for (int i = 0; i < size; ++i) {
+        int now = numberString[i] - '0';
+        int potency = pow(now, size);
+        adittion += potency;
     }
 
-    if(suma == numero){
+    if (adittion == number) {
         return 1;
-    }else {
+    } else {
         return 0;
     }
 }
 
-int funtion_numMagical(int numero){
-    int numdes;
-    int numAs;
-    int longitud = floor(log10(numero)) + 1;
-    char numeroCadena[longitud + 1];
+int funtion_numMagical(int number) {
+    int numDes, numAs;
+    int size = floor(log10(number)) + 1;
+    char numberString[size + 1];
 
-    sprintf(numeroCadena,"%d",numero);
+    sprintf(numberString, "%d", number);
 
-    for (int i = 0; i < longitud - 1; i++) {
-        for (int j = i + 1; j < longitud; j++) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
 
-            if (numeroCadena[i] < numeroCadena[j]) {
-                int temporal = numeroCadena[i];
-                numeroCadena[i] = numeroCadena[j];
-                numeroCadena[j] = temporal;
+            if (numberString[i] < numberString[j]) {
+                int temporal = numberString[i];
+                numberString[i] = numberString[j];
+                numberString[j] = temporal;
             }
         }
     }
 
-    numdes = atoi(numeroCadena);
+    numDes = atoi(numberString);
 
-    for (int i = 0; i < longitud - 1; i++) {
-        for (int j = i + 1; j < longitud; j++) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
 
-            if (numeroCadena[i] > numeroCadena[j]) {
-                int temporal = numeroCadena[i];
-                numeroCadena[i] = numeroCadena[j];
-                numeroCadena[j] = temporal;
+            if (numberString[i] > numberString[j]) {
+                int temporal = numberString[i];
+                numberString[i] = numberString[j];
+                numberString[j] = temporal;
             }
         }
     }
 
-    numAs = atoi(numeroCadena);
+    numAs = atoi(numberString);
 
-    if((numdes-numAs) == numero){
+    if ((numDes - numAs) == number) {
         return 1;
-    }else{
+    } else {
         return 0;
     }
-
 }
 
-char *funtion_dates(char date[10]) {
+void funtion_dates(char date[10]) {
     char *months[12] = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre",
                         "octubre", "noviembre", "diciembre"};
     char *dateFinal[200];
@@ -227,43 +258,40 @@ char *funtion_dates(char date[10]) {
                 break;
         }
 
-        if (dayMax > 0) {
+        if (year > 2022) {
+            printf("Aun no estamos en ese anio...\n");
+        } else {
             if (day > dayMax) {
-                printf("Ese mes no tiene tantos dias...\n\n");
+                printf("Ese mes no tiene tantos dias...\n");
             } else {
                 printf("Su fecha es: %2i de %s de %i\n", day, months[month - 1], year);
             }
-        } else {
-            printf("Mes incorrecto...\n\n");
         }
     } else {
-        printf("Formato de fecha incorrecto...\n\n");
+        printf("Formato de fecha incorrecto...\n");
     }
-    return *dateFinal;
 }
 
-int funtion_productPoint(int matrizA[], int matrizB[]) {
+int funtion_productPoint(int matrizA[], int matrizB[], int sizeMatriz) {
     int sizeTotal = 0;
-    int sizeMatrizA = sizeof(*matrizA);
-    for (int i = 0; i < sizeMatrizA; ++i) {
+    for (int i = 0; i < sizeMatriz; ++i) {
         sizeTotal += matrizA[i] * matrizB[i];
     }
     return sizeTotal;
 }
 
-void funtion_multArryas(int fm1, int cm1,int fm2,int cm2){
+void funtion_multArryas(int fm1, int cm1, int fm2, int cm2) {
     int m1[fm1][cm1];
     int m2[fm2][cm2];
     int m3[fm1][cm2];
 
-
-    if(cm1 == fm2){
-        for (int i = 0; i < fm1 ; ++i) {
+    if (cm1 == fm2) {
+        for (int i = 0; i < fm1; ++i) {
             for (int j = 0; j < cm1; ++j) {
                 m1[i][j] = rand() % 9 + 1;
             }
         }
-        for (int i = 0; i < fm2 ; ++i) {
+        for (int i = 0; i < fm2; ++i) {
             for (int j = 0; j < cm2; ++j) {
                 m2[i][j] = rand() % 9 + 1;
             }
@@ -277,18 +305,18 @@ void funtion_multArryas(int fm1, int cm1,int fm2,int cm2){
             }
         }
         printf("\nPrimera matriz:\n\n");
-        for (int i = 0; i < fm1 ; ++i) {
+        for (int i = 0; i < fm1; ++i) {
             printf("  [");
             for (int j = 0; j < cm1; ++j) {
-                printf(" %d ",m1[i][j]);
+                printf(" %d ", m1[i][j]);
             }
             printf("]\n");
         }
         printf("\nSegunda matriz:\n\n");
-        for (int i = 0; i < fm2 ; ++i) {
+        for (int i = 0; i < fm2; ++i) {
             printf("  [");
             for (int j = 0; j < cm2; ++j) {
-                printf(" %d ",m2[i][j]);
+                printf(" %d ", m2[i][j]);
             }
             printf("]\n");
         }
@@ -296,29 +324,59 @@ void funtion_multArryas(int fm1, int cm1,int fm2,int cm2){
         for (int i = 0; i < fm1; ++i) {
             printf("  [");
             for (int j = 0; j < cm2; ++j) {
-                if(m3[i][j] < 100){
-                    printf("  %d ",m3[i][j]);
-                }else{
-                    printf(" %d ",m3[i][j]);
+                if (m3[i][j] < 100) {
+                    printf("  %d ", m3[i][j]);
+                } else {
+                    printf(" %d ", m3[i][j]);
                 }
             }
             printf("]\n");
         }
         printf("\n");
-    } else{
+    } else {
         printf("\n----> Las matrices no son multiplicables\n");
     }
 }
 
-void funtion_multArryas();
+void funtion_magicArray(int number) {
+    if (number % 2 == 0) {
+        printf("NULL\n");
+        return;
+    }
 
-void funtion_continue(){
-    printf("\nPresiona enter para continuar.....:");
+    int i = 1;
+    int j = (1 + number) / 2;
+    matriz[i][j] = 1;
 
-    char cad;
-    cad = (char)getch();
+    for (int value = 2; value <= number * number; ++value) {
+        i -= 1;
+        j += 1;
+        if (i < 1 && j > number) {
+            i += 2;
+            j -= 1;
+        } else {
+            if (i < 1) {
+                i = number;
+            }
+            if (j > number) {
+                j = 1;
+            }
+        }
+        if (matriz[i][j] == 0) {
+            matriz[i][j] = value;
+        } else {
+            i += 2;
+            j -= 1;
+            matriz[i][j] = value;
+        }
+    }
 
-    printf("\n");
+    for (int i = 1; i <= number; i++) {
+        for (int j = 1; j <= number; j++) {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 // Instancia Menus
@@ -341,6 +399,7 @@ void menuPrincipal() {
                "Digite una opcion...:");
 
         scanf("%i", &optionMenu);
+        fflush(stdin);
 
         switch (optionMenu) {
             case 1:
@@ -354,6 +413,7 @@ void menuPrincipal() {
                 break;
 
             case 3:
+                menu_deleteSpaces();
                 bucleMenu = 1;
                 break;
 
@@ -383,6 +443,7 @@ void menuPrincipal() {
                 break;
 
             case 9:
+                menu_magicArray();
                 bucleMenu = 1;
                 break;
 
@@ -410,77 +471,82 @@ void menu_numRoman() {
     }
 
     printf("El valor [ %s ] en numeros decimales es: %d\n", numRoman, funtion_numRoman(numRoman));
-
-    funtion_continue();
+    pressEnter();
 }
 
-void menu_primeFactors(){
-    long numero;
+void menu_primeFactors() {
+    long number;
 
-    printf("\n-->Descomponer un numero por factores primos<---\n\n");
+    printf("---> Menu factores primos\n"
+           "Ingrese una numero...");
+    scanf("%d", &number);
 
-    printf("Ingrese el numero (no mayor a 2147483646)...: ");
-    scanf("%d",&numero);
-
-    funtion_primeFactors(numero);
-
-    funtion_continue();
+    funtion_primeFactors(number);
+    pressEnter();
 }
 
 void menu_deleteSpaces() {
+    char string[100];
+    char stringWithoutSpaces[100];
+    printf("---> Menu borrar espacios\n"
+           "Ingrese una cadena de caracteres...");
 
+    consumirNuevaLinea();
+    fgets(string, 100, stdin);
+
+    funtion_deleteSpaces(string, stringWithoutSpaces);
+    printf("La cadena sin espacios es: %s", stringWithoutSpaces);
+    pressEnter();
 }
 
-void menu_numEgotistical(){
-    int numero;
+void menu_numEgotistical() {
+    int number;
 
-    printf("\n-->Determinar si un numero es egolatra<---\n");
-
-    printf("\nDigite el numero.....: ");
-    scanf("%d",&numero);
+    printf("---> Menu numero egolatra\n"
+           "Digite un numero...");
+    scanf("%d", &number);
     fflush(stdin);
 
-    if(funtion_numEgotistical(numero) == 1){
-        printf("\n-----> %d es un numero egolatra\n", numero);
-    }else {
-        printf("\n-----> %d no es un numero egolatra\n", numero);
+    if (funtion_numEgotistical(number) == 1) {
+        printf("El numero %d es un numero egolatra", number);
+    } else {
+        printf("El numero %d NO es un numero egolatra", number);
     }
-
-    funtion_continue();
+    pressEnter();
 }
 
-void menu_numMagical(){
-    int numero;
+void menu_numMagical() {
+    int number;
 
-    printf("\n-->Determinar si un numero es magico<---\n");
+    printf("---> Menu numero magico\n"
+           "Ingrese una cadena de caracteres...");
+    scanf("%d", number);
 
-    printf("\nDigite el numero.....: ");
-    scanf("%d",&numero);
-
-    if(funtion_numMagical(numero) == 1){
-        printf("\n-----> %d es un numero magico\n", numero);
-    }else {
-        printf("\n-----> %d no es un numero magico\n", numero);
+    if (funtion_numMagical(number) == 1) {
+        printf("El numero %d es un numero magico", number);
+    } else {
+        printf("El numero %d NO es un numero magico", number);
     }
-
-    funtion_continue();
+    pressEnter();
 }
 
 void menu_dates() {
     char date[10];
 
-    printf("---> Fechas\n"
+    printf("---> Menu fechas\n"
            "- Ingrese una fecha con el formato [dd/mm/yyyy]");
 
     scanf("%s", date);
+    fflush(stdin);
+
     funtion_dates(date);
-    funtion_continue();
+    pressEnter();
 }
 
 void menu_productPoint() {
     int sizeA, sizeB;
 
-    printf("---> Producto punto\n"
+    printf("---> Menu producto punto\n"
            "- Ingrese el tamanho del vector A:");
     scanf("%d", &sizeA);
 
@@ -502,35 +568,66 @@ void menu_productPoint() {
             fflush(stdin);
         }
 
-        printf("El producto punto de ambas matrices es: %d \n", funtion_productPoint(matrizA, matrizB));
+        printf("Producto punto: %d \n", funtion_productPoint(matrizA, matrizB, sizeA));
+        pressEnter();
     } else {
         printf("Ambas matrices deben ser iguales...\n");
+        pressEnter();
     }
-    funtion_continue();
 }
 
-void menu_multArryas(){
-    int fm1,cm1,fm2,cm2;
+void menu_multArryas() {
+    int rows1, columns1, rows2, columns2;
 
-    printf("\n----->Multiplicar matrices<-----\n\n");
+    printf("---> Menu multiplicar matrices\n"
+           "- Ingrese las filas de la primera matriz:");
+    scanf("%d", &rows1);
 
-    printf("Ingrese el numero de filas de la primera matriz........: ");
-    scanf("%d",&fm1);
-    printf("\n");
-    printf("Ingrese el numero de columnas de la primera matriz.....: ");
-    scanf("%d",&cm1);
-    printf("\n");
-    printf("Ingrese el numero de filas de la segunda matriz........: ");
-    scanf("%d",&fm2);
-    printf("\n");
-    printf("Ingrese el numero de columnas de la segunda matriz.....: ");
-    scanf("%d",&cm2);
+    printf("- \nIngrese las columnas de la primera matriz:");
+    scanf("%d", &columns1);
 
-    funtion_multArryas(fm1,cm1,fm2,cm2);
+    printf("- \nIngrese las filas de la segunda matriz:");
+    scanf("%d", &rows2);
 
-    funtion_continue();
+    printf("- \nIngrese las columnas de la segunda matriz:");
+    scanf("%d", &columns2);
+
+    funtion_multArryas(rows1, columns1, rows2, columns2);
+    pressEnter();
 }
 
 void menu_magicArray() {
+    int matriz[nums][nums];
+    int number;
 
+    printf("---> Menu matriz magica\n"
+           "- Ingrese el numero de elementos:");
+
+    scanf("%d", &number);
+
+    for (int i = 1; i <= number; i++) {
+        for (int j = 1; j <= number; j++) {
+            matriz[i][j] = 0;
+        }
+    }
+
+    printf("\nLa funcion es: \n");
+    funtion_magicArray(number);
+    pressEnter();
+}
+
+// Funciones complementarias
+void consumirNuevaLinea(void) {
+    int c;
+    do {
+        c = getchar();
+    } while (c != EOF && c != '\n');
+}
+
+void pressEnter() {
+    printf("\nPresione enter para continuar...");
+    char tecla = getch();
+    if (tecla == ' ') {
+        getch();
+    }
 }
