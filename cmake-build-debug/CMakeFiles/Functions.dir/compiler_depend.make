@@ -25,7 +25,11 @@ CMakeFiles/Functions.dir/main.c.obj: C:/Users/numar/CLionProjects/Functions/main
   C:/mingw64/mingw64/x86_64-w64-mingw32/include/errno.h \
   C:/mingw64/mingw64/x86_64-w64-mingw32/include/string.h \
   C:/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
-  C:/mingw64/mingw64/x86_64-w64-mingw32/include/ctype.h
+  C:/mingw64/mingw64/x86_64-w64-mingw32/include/ctype.h \
+  C:/mingw64/mingw64/x86_64-w64-mingw32/include/conio.h \
+  C:/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/stddef.h \
+  C:/mingw64/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/conio_s.h
 
 
 C:/Users/numar/CLionProjects/Functions/main.c:
@@ -50,6 +54,8 @@ C:/mingw64/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h:
 
 C:/mingw64/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h:
 
+C:/mingw64/mingw64/x86_64-w64-mingw32/include/conio.h:
+
 C:/mingw64/mingw64/x86_64-w64-mingw32/include/swprintf.inl:
 
 C:/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h:
@@ -57,6 +63,8 @@ C:/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h:
 C:/mingw64/mingw64/x86_64-w64-mingw32/include/limits.h:
 
 C:/mingw64/mingw64/x86_64-w64-mingw32/include/stdlib.h:
+
+C:/mingw64/mingw64/x86_64-w64-mingw32/include/stddef.h:
 
 C:/mingw64/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h:
 
@@ -74,6 +82,10 @@ C:/mingw64/mingw64/x86_64-w64-mingw32/include/malloc.h:
 
 C:/mingw64/mingw64/x86_64-w64-mingw32/include/errno.h:
 
+C:/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/stddef.h:
+
 C:/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h:
 
 C:/mingw64/mingw64/x86_64-w64-mingw32/include/ctype.h:
+
+C:/mingw64/mingw64/x86_64-w64-mingw32/include/sec_api/conio_s.h:
